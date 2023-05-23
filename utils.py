@@ -7,9 +7,9 @@ def load_candidates():
     return data
 
 
-def main_page():
+def main_page(candidate_s):
     res = ""
-    for i in load_candidates():
+    for i in candidate_s:
         res += f'''
         Имя кандидата - {i['name']}
         Позиция кандидата - {i['position']}
@@ -19,7 +19,7 @@ def main_page():
 
 
 def get_by_pk(pk):
-    return [i for i in load_candidates() if pk == i['pk']]
+    return [load_candidates()[pk-1]]
 
 
 def get_by_skill(skill_name):
